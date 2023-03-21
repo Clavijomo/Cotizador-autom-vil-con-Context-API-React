@@ -1,4 +1,5 @@
-import { MARCAS, YEARS } from "../constants";
+import {Fragment} from 'react'
+import { MARCAS, YEARS, PLANES } from "../constants";
 
 function Formulario() {
     return (
@@ -43,6 +44,32 @@ function Formulario() {
                         ))}
                     </select>
                 </div>
+
+                <div className="my-5">
+                    <label className="block mb-3 font-semibold text-gray-400 uppercase">
+                        Elige un plan
+                    </label>
+                    <div className="flex gap-3 items-center ">
+                        {PLANES.map(plan => (
+                            <Fragment key={plan.id}>
+                                <label>
+                                    {plan.nombre}
+                                </label>
+                                <input 
+                                    type="radio"
+                                    name="plan"
+                                    value={plan.id}
+                                />
+                            </Fragment>
+                        ))}
+                    </div>                    
+                </div>
+
+                <input 
+                    type="submit"
+                    className="w-full bg-indigo-500 hover:bg-indigo-600 transition-colors text-white cursor-default p-3 uppercase font-semibold"
+                    value="Cotizar"
+                />
             </form>
         </>
     )
