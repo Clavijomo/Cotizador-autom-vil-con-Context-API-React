@@ -5,6 +5,8 @@ const Resultado = () => {
 
   const { resultado, datos } = useCotizador();
   const {marca, plan, year} = datos;
+  
+  const [nombreMarca] = MARCAS.filter(m => m.id === Number(marca));
 
   if(resultado === 0) return null;
 
@@ -15,9 +17,8 @@ const Resultado = () => {
       </h2>
 
       <p className="my-2">
-        <span className="font-semibold">Marca:  
-          {marca}
-        </span>
+        <span className="font-semibold">Marca: </span>
+        {nombreMarca.nombre}
       </p>
     </div>
   )
